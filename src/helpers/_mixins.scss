@@ -1,0 +1,15 @@
+@import 'variables';
+
+@mixin generateButton($color, $width) {
+    min-width: $width;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: $color;
+    color: $color-bg-primary;
+    outline: none;
+    border: none;
+
+    &:hover {
+        box-shadow: 0 8px 6px -6px $color;
+    }
+}

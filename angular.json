@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-organaizer"
+    }
+  },
+  "defaultProject": "angular-organaizer",
+  "cli": {
+    "analytics": false
+  }
 }

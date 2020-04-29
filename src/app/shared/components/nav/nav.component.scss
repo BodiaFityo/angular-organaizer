@@ -1,0 +1,40 @@
+@import 'src/helpers/variables';
+
+.nav-bar {
+
+    &__bar {
+        position: fixed;
+        width: 100%;
+        background-color: $color-bg-primary;
+        border-bottom: 1px solid $color-primary;
+
+         ul {
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+
+             li {
+                 list-style: none;
+                 margin: 0 10px;
+                 padding: 10px;
+                 min-width: 114px;
+
+                 a {
+                     text-decoration: none;
+                     color: $color-primary;
+
+                     &:hover {
+                         opacity: 0.5;
+                         color: $color-bg-accent;
+                     }
+                 }
+             }
+         }
+    }
+}
+
+.active {
+    color: $color-primary;
+    font-weight: $font-ext-bld;
+}
