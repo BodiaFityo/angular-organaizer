@@ -32,8 +32,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-bottom: 10px;
-        min-height: 100px;
+        min-height: 90px;
 
         input {
             padding: 10px;
@@ -56,4 +55,31 @@
             @include generateButton($color-bg-accent, 90px)
         }
     }
+
+    .error-container {
+        min-height: 18px;
+
+        .error-msg {
+            font-size: 11px;
+            color: #bb2124;
+        }
+    }
+
+    .invalid {
+
+        input {
+            border: 1px solid #bb2124;
+        }
+    }
+
+    .valid {
+
+        input {
+            border: 1px solid #22bb33;
+        }
+    }
+}
+
+.title {
+    text-align: center;
 }
