@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -8,10 +8,8 @@ import {MainLayoutComponent} from './shared/components/main-layout/main-layout.c
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NavComponent} from './shared/components/nav/nav.component';
 import {CreateTaskComponent} from './create-task/create-task.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from './shared/sharedModule';
-import { OrganaizerLayoutComponent } from './organaizer/organaizer-layout/organaizer-layout.component';
-import { CalendarPageComponent } from './organaizer/calendar-page/calendar-page.component';
+
 
 @NgModule({
     declarations: [
@@ -25,11 +23,10 @@ import { CalendarPageComponent } from './organaizer/calendar-page/calendar-page.
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
         SharedModule,
     ],
     providers: [],
+    exports: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,13 +1,13 @@
 @import 'src/helpers/variables';
 @import 'src/helpers/mixins';
 
-.login {
+.task-modal {
 
-    &__bc-modal {
+    &__bg {
         position: fixed;
+        top: 0;
         left: 0;
         right: 0;
-        top: 0;
         bottom: 0;
         background-color: $color-primary;
         opacity: 0.5;
@@ -15,15 +15,16 @@
 
     &__modal {
         position: absolute;
+        top: 20%;
         left: 50%;
-        transform: translate(-50%,0);
+        transform: translate(-50%, 0);
     }
 }
 
 .form {
 
     &__content {
-        min-width: 500px;
+        min-width: 300px;
         background-color: $color-bg-primary;
         padding: 15px;
     }
@@ -41,8 +42,11 @@
             font-size: 14px;
         }
 
-        label {
-            font-size: 11px;
+        textarea {
+            padding: 20px;
+            margin: 5px;
+            border: 1px solid $color-bg-accent;
+            font-size: 14px;
         }
     }
 
@@ -70,6 +74,10 @@
         input {
             border: 1px solid #bb2124;
         }
+
+        textarea {
+            border: 1px solid #bb2124;
+        }
     }
 
     .valid {
@@ -77,9 +85,18 @@
         input {
             border: 1px solid #22bb33;
         }
+
+        textarea {
+            border: 1px solid #22bb33;
+        }
     }
 }
 
 .title {
     text-align: center;
+}
+
+.task-date {
+    font-size: 12px;
+    font-weight: $font-ext-bld;
 }

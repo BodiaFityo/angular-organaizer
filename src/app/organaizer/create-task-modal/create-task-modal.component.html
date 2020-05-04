@@ -1,0 +1,64 @@
+<section class="task-modal">
+    <div class="task-modal__bg"></div>
+    <div class="task-modal__modal">
+        <div class="form">
+            <form
+                class="form__content"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()"
+            >
+                <h2 class="title">Create Task</h2>
+                <span class="task-date">{{ date | async | moment }}</span>
+                <div
+                    class="form__control"
+                    [ngClass]="{
+                        invalid: form.get('title').invalid && form.get('title').touched,
+                        valid: !(form.get('title').invalid && form.get('title').touched)
+                    }"
+                >
+                    <input
+                        type="text"
+                        placeholder="Title"
+                        formControlName="title"
+                    >
+                    <div class="error-container">
+                        <p
+                            class="error-msg"
+                            *ngIf="form.get('title').invalid && form.get('title').touched">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="form__control"
+                    [ngClass]="{
+                        invalid: form.get('text').invalid && form.get('text').touched,
+                        valid: !(form.get('text').invalid && form.get('text').touched)
+                    }"
+                >
+                   <textarea
+                       name="text"
+                       placeholder="Task"
+                       formControlName="text"
+                   ></textarea>
+                    <div class="error-container">
+                        <p
+                            class="error-msg"
+                            *ngIf="form.get('text').invalid && form.get('text').touched">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+                <div class="form__btn">
+                    <button
+                        type="submit"
+                        [disabled]="form.invalid"
+                    >
+                        Save
+                    </button>
+                    <button (click)="onClose()">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

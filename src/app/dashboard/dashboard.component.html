@@ -1,2 +1,11 @@
-<p>dashboard works!</p>
-<button (click)="logOut()">Log Out</button>
+<section class="dashboard-page">
+    <div
+        class="dashboard-page__date-container"
+        *ngIf="creationDate">
+        <h2>Tasks creation date:</h2>
+        <ul *ngFor="let time of creationDate">
+            <li>{{ time.time }}</li>
+        </ul>
+        <button (click)="logOut()">Log Out</button>
+    </div>
+</section>

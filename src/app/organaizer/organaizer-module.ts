@@ -5,14 +5,12 @@ import {SharedModule} from '../shared/sharedModule';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../shared/services/auth.guard';
+import {SelectorPageComponent} from './selector-page/selector-page.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
     {
-        path: '', component: OrganaizerLayoutComponent, children: [
-            {
-                path: '', component: CalendarPageComponent
-            }
-        ],
+        path: '', component: OrganaizerLayoutComponent,
         canActivate: [AuthGuard],
     }
 ];
@@ -21,16 +19,20 @@ const routes: Routes = [
     declarations: [
         OrganaizerLayoutComponent,
         CalendarPageComponent,
+        SelectorPageComponent,
     ],
     imports: [
         CommonModule,
         SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        HttpClientModule,
     ],
     exports: [
         SharedModule,
-        RouterModule
-    ]
+        RouterModule,
+        HttpClientModule,
+    ],
+    providers: []
 })
 
 export class OrganaizerModule {

@@ -1,0 +1,16 @@
+@import 'src/helpers/variables';
+@import 'src/helpers/mixins';
+
+.dashboard-page {
+
+    &__date-container {
+
+        ul {
+            margin: 5px;
+        }
+
+        button {
+            @include generateButton($color-bg-second, 90px)
+        }
+    }
+}
