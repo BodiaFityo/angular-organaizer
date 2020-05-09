@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
     form: FormGroup;
+    errorMsg;
+
     constructor(
         private authService: AuthService,
         private router: Router,
@@ -18,6 +20,10 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.authService.errorStream$
+            .subscribe(error => {
+                this.errorMsg = error;
+            });
         this.form = new FormGroup({
             email: new FormControl(null, [
                 Validators.required,

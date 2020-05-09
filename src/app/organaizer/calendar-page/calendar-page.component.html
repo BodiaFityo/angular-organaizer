@@ -31,26 +31,26 @@
         </tr>
         </tbody>
     </table>
-</section>
-<section class="task">
-    <div class="task__container">
-        <span>{{ date | async | moment }}</span>
-        <button (click)="onCreate()">Create Task</button>
-    </div>
-    <div
-        *ngIf="existedTask; else loading"
-        class="task__existed">
-        <div *ngFor="let task of existedTask">
-            <span>{{ task.date }}</span>
-            <span>{{ task.title }}</span>
-            <p>{{ task.text }}</p>
-            <button (click)="onDelete(task)">Delete</button>
+    <div class="task">
+        <div class="task__container">
+            <span>{{ date | async | moment }}</span>
+            <button (click)="onCreate()">Create Task</button>
         </div>
-    </div>
-    <ng-template #loading>
-        Loading...
-    </ng-template>
-    <div *ngIf="showModal">
-        <app-create-task-modal (hideModal)="showModal = !showModal"></app-create-task-modal>
+        <div
+            *ngIf="existedTask; else loading"
+            class="task__existed">
+            <div *ngFor="let task of existedTask">
+                <span>{{ task.date }}</span>
+                <span>{{ task.title }}</span>
+                <p>{{ task.text }}</p>
+                <button (click)="onDelete(task)">Delete</button>
+            </div>
+        </div>
+        <ng-template #loading>
+            Loading...
+        </ng-template>
+        <div *ngIf="showModal">
+            <app-create-task-modal (hideModal)="showModal = !showModal"></app-create-task-modal>
+        </div>
     </div>
 </section>

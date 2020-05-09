@@ -2,6 +2,7 @@
 @import 'src/helpers/mixins';
 
 .calendar {
+    min-height: 100vh;
 
     &__table {
         width: 100%;

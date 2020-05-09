@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {FireBaseAuthResponse, User} from '../Interfaces';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {environment} from '../../../environments/environment';
-import {tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable()
 
 export class AuthService {
+    public errorStream$: Subject<string> = new Subject<string>();
 
     private setToken(response: FireBaseAuthResponse | null) {
 
@@ -39,7 +40,8 @@ export class AuthService {
     login(user: User): Observable<FireBaseAuthResponse | User> {
         return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, user)
             .pipe(
-                tap(this.setToken)
+                tap(this.setToken),
+                catchError(this.handleError.bind(this))
             );
     }
 
@@ -49,5 +51,10 @@ export class AuthService {
 
     isAuthenticated() {
         return !!this.token;
+    }
+
+    handleError(error) {
+        const message = error.error.error.message;
+        this.errorStream$.next(message);
     }
 }
