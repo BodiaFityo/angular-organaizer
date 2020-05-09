@@ -1,0 +1,90 @@
+@import 'src/helpers/variables';
+@import 'src/helpers/mixins';
+
+.login {
+
+    &__bc-modal {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: $color-primary;
+        opacity: 0.5;
+    }
+
+    &__modal {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+}
+
+.form {
+
+    &__content {
+        min-width: 500px;
+        background-color: $color-bg-primary;
+        padding: 15px;
+    }
+
+    &__control {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 90px;
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid $color-bg-accent;
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 11px;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        button {
+            @include generateButton($color-bg-second, 90px)
+        }
+    }
+
+    .error-container {
+        min-height: 18px;
+
+        .error-msg {
+            font-size: 11px;
+            color: #bb2124;
+        }
+    }
+
+    .invalid {
+
+        input {
+            border: 1px solid #bb2124;
+        }
+    }
+
+    .valid {
+
+        input {
+            border: 1px solid #22bb33;
+        }
+    }
+}
+
+.title {
+    text-align: center;
+}
+
+.error-server {
+    font-size: 11px;
+    color: #bb2124;
+}

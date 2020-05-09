@@ -1,0 +1,83 @@
+<section class="login">
+    <div class="login__bc-modal"></div>
+    <div class="login__modal">
+        <div class="form">
+            <form
+                class="form__content"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()"
+            >
+                <h2 class="title">Login</h2>
+                <p class="error-server">{{ errorMsg }}</p>
+                <div
+                    class="form__control"
+                    [ngClass]="{
+                        invalid: form.get('email').invalid && form.get('email').touched,
+                        valid: !form.get('email').invalid && form.get('email').touched
+                    }"
+                >
+                    <label for="email">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="email"
+                        formControlName="email"
+                    >
+                    <div class="error-container">
+                        <div
+                            class="error-msg"
+                            *ngIf="(form.get('email').invalid && form.get('email').touched) &&
+                            form.get('email').errors.required"
+                        >
+                            Email is required
+                        </div>
+                        <div
+                            class="error-msg"
+                            *ngIf="form.get('email').invalid && form.get('email').errors.email">
+                            Email should be in next format: example@mail.com
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="form__control"
+                    [ngClass]="{
+                        invalid: form.get('password').invalid && form.get('password').touched,
+                        valid: !form.get('password').invalid && form.get('password').touched
+                    }"
+                >
+                    <label for="password">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="password"
+                        formControlName="password"
+                    >
+                    <div class="error-container">
+                        <div
+                            class="error-msg"
+                            *ngIf="(
+                            form.get('password').invalid && form.get('password').touched
+                            )
+                            && form.get('password').errors.required"
+                        >
+                            Password is required
+                        </div>
+                        <div
+                            class="error-msg"
+                            *ngIf="form.get('password').invalid && !!form.get('password').errors.minlength">
+                            Min password length {{ form.get('password').errors.minlength.requiredLength }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form__btn">
+                    <button
+                        type="submit"
+                        [disabled]="form.invalid"
+                    >
+                        Sign In
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

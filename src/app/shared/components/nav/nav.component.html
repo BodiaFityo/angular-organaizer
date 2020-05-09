@@ -1,0 +1,24 @@
+<nav class="nav-bar">
+    <div class="nav-bar__bar">
+        <h2>Organizer</h2>
+        <ul>
+            <li
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <a
+                    [routerLink]="['/']"
+                >
+                    Tasks
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a
+                    [routerLink]="['/create']"
+                >
+                    Create Task
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

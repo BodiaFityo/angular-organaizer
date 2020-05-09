@@ -1,0 +1,94 @@
+@import 'src/helpers/variables';
+@import 'src/helpers/mixins';
+
+.calendar {
+    min-height: 100vh;
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #1abc9c;
+    }
+
+    &__month {
+        padding: 70px 25px;
+        width: 100%;
+        background: #1abc9c;
+        text-align: center;
+    }
+
+    &__week {
+        margin: 0;
+        padding: 10px 0;
+        background-color: #ddd;
+
+        td {
+            padding: 5px;
+        }
+    }
+
+    &__day {
+        padding: 5px;
+
+        &:hover {
+            background-color: #1abc9c;
+            cursor: pointer;
+        }
+    }
+}
+
+.task {
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+
+        span {
+            font-weight: $font-ext-bld;
+        }
+
+        button {
+            @include generateButton($color-bg-second, 90px)
+        }
+    }
+
+    &__existed {
+        margin-top: 10px;
+
+        div {
+            padding: 10px;
+            border: 1px solid #1abc9c;
+            margin: 10px;
+        }
+
+        span {
+            font-weight: $font-ext-bld;
+            margin-right: 10px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-weight: $font-ext-bld;
+        }
+
+        button {
+            @include generateButton(#bb2124, 90px)
+        }
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.active {
+    color: $color-bg-second;
+    font-weight: $font-ext-bld;
+}
+
+.selected {
+    background-color: #1abc9c;
+    color: $color-bg-primary;
+}

@@ -1,0 +1,56 @@
+<section class="calendar">
+    <table class="calendar__table">
+        <thead>
+        <tr class="calendar__month">
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr
+            class="calendar__week"
+            *ngFor="let week of calendar">
+            <td
+                *ngFor="let day of week.days"
+                [ngClass]="{disabled: day.disabled}"
+                (click)="select(day.value)"
+            >
+                <span
+                    class="calendar__day"
+                    [ngClass]="{
+                        'active': day.active,
+                        'selected': day.selected
+                    }"
+                >{{ day.value | moment: 'ddd DD' }}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="task">
+        <div class="task__container">
+            <span>{{ date | async | moment }}</span>
+            <button (click)="onCreate()">Create Task</button>
+        </div>
+        <div
+            *ngIf="existedTask; else loading"
+            class="task__existed">
+            <div *ngFor="let task of existedTask">
+                <span>{{ task.date }}</span>
+                <span>{{ task.title }}</span>
+                <p>{{ task.text }}</p>
+                <button (click)="onDelete(task)">Delete</button>
+            </div>
+        </div>
+        <ng-template #loading>
+            Loading...
+        </ng-template>
+        <div *ngIf="showModal">
+            <app-create-task-modal (hideModal)="showModal = !showModal"></app-create-task-modal>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+<section class="dashboard-page">
+    <section class="fullscreen">
+        <div
+            class="fullscreen__date-container"
+            *ngIf="creationDate">
+            <h2>Tasks creation date:</h2>
+            <ul *ngFor="let time of creationDate">
+                <li>{{ time.time }}</li>
+            </ul>
+            <button (click)="logOut()">Log Out</button>
+        </div>
+    </section>
+    <section class="fullscreen fullscreen_bg"></section>
+    <section class="fullscreen fullscreen_lorem">
+       <div class="fullscreen__lorem-container">
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, minima.</p>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+               Delectus distinctio dolor eaque iste possimus?
+               Alias explicabo laborum pariatur repudiandae velit.
+           </p>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+               Delectus distinctio dolor eaque iste possimus?
+               Alias explicabo laborum pariatur repudiandae velit.
+           </p>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+               Delectus distinctio dolor eaque iste possimus?
+               Alias explicabo laborum pariatur repudiandae velit.
+           </p>
+       </div>
+    </section>
+</section>

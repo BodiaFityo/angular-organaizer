@@ -1,0 +1,47 @@
+@import 'src/helpers/variables';
+
+.nav-bar {
+
+    &__bar {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        background-color: #1abc9c;
+        border-bottom: 1px solid $color-primary;
+
+        h2 {
+            position: relative;
+            left: 10%;
+        }
+
+         ul {
+             flex: 1;
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+
+             li {
+                 list-style: none;
+                 margin: 0 10px;
+                 padding: 10px;
+                 min-width: 114px;
+
+                 a {
+                     text-decoration: none;
+                     color: $color-primary;
+
+                     &:hover {
+                         color: $color-bg-accent;
+                     }
+                 }
+             }
+         }
+    }
+}
+
+.active {
+    color: $color-primary;
+    font-weight: $font-ext-bld;
+}
